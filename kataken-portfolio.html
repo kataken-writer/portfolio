@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>かたけん | SEOライター ポートフォリオ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#0A1220;
+    --navy-900:#0E1B33;
+    --navy-800:#132444;
+    --navy-700:#1B3057;
+    --navy-600:#24406F;
+    --navy-500:#33507D;
+    --navy-200:#B9C7DE;
+    --navy-100:#E7ECF4;
+    --navy-50:#F4F6FA;
+    --white:#FFFFFF;
+    --text:#1A2333;
+    --text-soft:#4E5B71;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Noto Sans JP", sans-serif;
+    color:var(--text);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.font-display{
+    font-family:"Zen Kaku Gothic New","Noto Sans JP",sans-serif;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  ::selection{background:var(--navy-600);color:#fff;}
+  :focus-visible{outline:2px solid var(--navy-600);outline-offset:3px;}
+
+  .wrap{max-width:1040px;margin:0 auto;padding:0 20px;}
+  .wrap-narrow{max-width:720px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- Header ---------- */
+  .site-header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    transition:box-shadow .2s ease;
+  }
+  .site-header.is-scrolled{ box-shadow:0 2px 24px rgba(14,27,51,0.06); }
+  .site-header .wrap{
+    height:64px;display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:8px;}
+  .brand .mark{
+    width:32px;height:32px;border-radius:50%;background:var(--navy-900);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+  }
+  .brand .name{font-weight:700;font-size:15px;letter-spacing:.02em;}
+  .brand .name span{color:var(--navy-500);font-weight:400;}
+
+  .main-nav{display:none;align-items:center;gap:32px;font-size:14px;color:var(--navy-700);}
+  .main-nav a:hover{color:var(--navy-900);}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    border-radius:999px;font-weight:500;font-size:14px;cursor:pointer;
+    border:none;font-family:inherit;
+  }
+  .btn-primary{background:var(--navy-900);color:#fff;padding:12px 24px;}
+  .btn-primary:hover{background:var(--navy-700);}
+  .btn-outline{border:1px solid var(--navy-200);color:var(--navy-800);padding:12px 24px;background:#fff;}
+  .btn-outline:hover{background:var(--navy-50);}
+
+  .header-cta{display:none;}
+
+  .menu-toggle{
+    display:flex;align-items:center;justify-content:center;
+    width:40px;height:40px;background:none;border:none;color:var(--navy-900);cursor:pointer;
+  }
+
+  .mobile-nav{
+    display:none;
+    background:#fff;border-top:1px solid var(--navy-100);
+    padding:16px 20px 24px;flex-direction:column;gap:16px;
+  }
+  .mobile-nav.is-open{display:flex;}
+  .mobile-nav a{font-size:14px;font-weight:500;color:var(--text);}
+
+  @media(min-width:960px){
+    .main-nav{display:flex;}
+    .header-cta{display:inline-flex;}
+    .menu-toggle{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:150px 0 96px;text-align:center;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;
+    letter-spacing:.12em;color:var(--navy-600);background:var(--navy-50);
+    padding:7px 18px;border-radius:999px;
+  }
+  .hero h1{
+    margin:30px auto 0;font-weight:700;line-height:1.7;font-size:24px;color:var(--navy-900);
+    max-width:640px;
+  }
+  .hero h1 .kw{background-image:linear-gradient(transparent 62%, var(--navy-100) 62%);}
+  .hero h1 .kw-strong{background-image:linear-gradient(transparent 66%, var(--navy-200) 66%);}
+  .hero p{
+    margin:26px auto 0;color:var(--text-soft);font-size:15px;line-height:2;max-width:600px;
+  }
+  .hero-actions{
+    margin-top:38px;display:flex;flex-direction:column;gap:12px;align-items:center;
+  }
+  .hero-mock{
+    margin:60px auto 0;max-width:480px;
+  }
+  .search-bar{
+    display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--navy-100);
+    border-radius:16px;box-shadow:0 1px 2px rgba(14,27,51,0.04),0 8px 24px rgba(14,27,51,0.06);
+    padding:16px 20px;
+  }
+  .search-bar span{color:#9AA6B8;font-size:14px;}
+  .tag-row{margin-top:16px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
+  .tag{
+    font-size:12px;font-weight:500;color:var(--navy-700);background:var(--navy-50);
+    padding:7px 14px;border-radius:999px;
+  }
+
+  @media(min-width:640px){
+    .hero-actions{flex-direction:row;justify-content:center;}
+    .hero h1{font-size:32px;}
+  }
+  @media(min-width:768px){
+    .hero{padding:190px 0 120px;}
+    .hero h1{font-size:38px;max-width:720px;}
+  }
+
+  /* ---------- Section heading ---------- */
+  .section{padding:96px 0;}
+  .section-alt{background:var(--navy-50);}
+  .section-head{max-width:560px;margin:0 auto 56px;text-align:center;}
+  .section-head .eyebrow-label{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--navy-500);}
+  .section-head h2{margin:12px 0 0;font-weight:700;font-size:24px;color:var(--navy-900);}
+  .section-head p{margin:16px 0 0;color:var(--text-soft);font-size:14px;line-height:1.9;}
+  @media(min-width:768px){ .section-head h2{font-size:28px;} }
+
+  /* ---------- Profile ---------- */
+  .profile-grid{display:grid;gap:40px;}
+  .profile-avatar{display:flex;justify-content:center;}
+  .avatar-ring{position:relative;width:150px;height:150px;}
+  .avatar-ring::before{
+    content:"";position:absolute;inset:0;border-radius:50%;border:1px solid var(--navy-200);
+  }
+  .avatar-inner{
+    position:absolute;inset:12px;border-radius:50%;background:var(--navy-900);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:36px;
+  }
+  .profile-name-mobile{text-align:center;font-weight:600;color:var(--navy-900);margin:16px 0 0;}
+  .profile-name-mobile small{display:block;font-weight:400;color:var(--navy-500);font-size:12px;margin-top:4px;}
+
+  .profile-body p{color:var(--text-soft);line-height:2;font-size:14.5px;}
+  .profile-body p + p{margin-top:20px;}
+
+  .check-list{margin-top:28px;display:flex;flex-direction:column;gap:12px;}
+  .check-list li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--text-soft);}
+  .check-list svg{flex-shrink:0;margin-top:2px;color:var(--navy-500);}
+
+  .genre-label{font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--navy-500);margin:36px 0 12px;}
+  .genre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .genre-card{
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    background:#fff;border:1px solid var(--navy-100);border-radius:12px;padding:16px 8px;
+  }
+  .genre-card span{font-size:11.5px;color:var(--text-soft);}
+  .genre-card svg{color:var(--navy-600);}
+
+  @media(min-width:640px){ .genre-grid{grid-template-columns:repeat(6,1fr);} }
+  @media(min-width:768px){
+    .profile-grid{grid-template-columns:220px 1fr;align-items:start;}
+    .profile-name-mobile{display:none;}
+  }
+
+  /* ---------- Services ---------- */
+  .service-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+  .service-card{
+    border:1px solid var(--navy-100);border-radius:18px;padding:28px;background:#fff;
+    transition:box-shadow .2s ease;
+  }
+  .service-card:hover{box-shadow:0 1px 2px rgba(14,27,51,0.04),0 8px 24px rgba(14,27,51,0.06);}
+  .service-icon{
+    width:44px;height:44px;border-radius:12px;background:var(--navy-50);color:var(--navy-700);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .service-card h3{margin:18px 0 0;font-size:15.5px;font-weight:600;color:var(--navy-900);}
+  .service-card p{margin:10px 0 0;font-size:13.5px;line-height:1.9;color:var(--text-soft);}
+  .service-note{
+    border:1px dashed var(--navy-200);border-radius:18px;padding:28px;background:var(--navy-50);
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .service-note p{font-size:13.5px;line-height:1.9;color:var(--text-soft);}
+  .service-note a{
+    margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:14px;
+    font-weight:500;color:var(--navy-800);
+  }
+  .service-note a:hover{text-decoration:underline;}
+
+  @media(min-width:640px){ .service-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(min-width:960px){ .service-grid{grid-template-columns:repeat(3,1fr);} }
+
+  /* ---------- Samples ---------- */
+  .sample-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+  .sample-card{
+    display:block;border:1px solid var(--navy-100);border-radius:18px;padding:24px;background:#fff;
+    transition:box-shadow .2s ease;
+  }
+  .sample-card:hover{box-shadow:0 1px 2px rgba(14,27,51,0.04),0 8px 24px rgba(14,27,51,0.06);}
+  .sample-tag{
+    display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--navy-500);
+    background:var(--navy-50);padding:5px 12px;border-radius:999px;
+  }
+  .sample-card h3{margin:16px 0 0;font-size:15px;font-weight:600;line-height:1.6;color:var(--navy-900);}
+  .sample-card p{margin:10px 0 0;font-size:12.5px;line-height:1.8;color:var(--text-soft);}
+  .sample-link{
+    margin-top:14px;display:inline-flex;align-items:center;gap:5px;font-size:12.5px;
+    font-weight:500;color:var(--navy-700);
+  }
+  .sample-card:hover .sample-link{text-decoration:underline;}
+
+  @media(min-width:640px){ .sample-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(min-width:960px){ .sample-grid{grid-template-columns:repeat(3,1fr);} }
+
+  /* ---------- Flow ---------- */
+  .flow-list{position:relative;display:flex;flex-direction:column;gap:32px;}
+  .flow-item{display:flex;gap:20px;}
+  .flow-num{
+    flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--navy-900);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+  }
+  .flow-item h3{margin:6px 0 0;font-size:15px;font-weight:600;color:var(--navy-900);}
+  .flow-item p{margin:6px 0 0;font-size:13.5px;line-height:1.9;color:var(--text-soft);}
+
+  /* ---------- FAQ ---------- */
+  .faq-item{border-bottom:1px solid var(--navy-100);padding:20px 0;}
+  .faq-q{
+    width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+    background:none;border:none;text-align:left;font-family:inherit;cursor:pointer;
+    font-size:14.5px;font-weight:500;color:var(--navy-900);padding:0;
+  }
+  .faq-q svg{flex-shrink:0;color:#9AA6B8;transition:transform .2s ease;}
+  .faq-item.is-open .faq-q svg{transform:rotate(180deg);}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .25s ease;
+  }
+  .faq-item.is-open .faq-a{max-height:300px;}
+  .faq-a p{margin:14px 32px 0 0;font-size:13.5px;line-height:1.9;color:var(--text-soft);}
+
+  /* ---------- Contact ---------- */
+  .contact-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:48px;}
+
+  .form-grid{display:grid;gap:20px;}
+  .form-row{display:grid;gap:20px;grid-template-columns:1fr;}
+  @media(min-width:640px){ .form-row{grid-template-columns:1fr 1fr;} }
+  .field label{display:block;font-size:12px;font-weight:500;color:var(--text-soft);margin-bottom:6px;}
+  .field label .req{color:#B8C2D4;}
+  .field input,.field select,.field textarea{
+    width:100%;border:1px solid var(--navy-200);border-radius:12px;padding:12px 16px;
+    font-size:14px;font-family:inherit;color:var(--text);background:#fff;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--navy-600);
+  }
+  .field textarea{resize:vertical;min-height:120px;}
+
+  .form-submit{margin-top:4px;}
+
+  .contact-success{
+    border:1px solid var(--navy-100);border-radius:18px;padding:48px 24px;text-align:center;
+    background:var(--navy-50);display:none;
+  }
+  .contact-success.is-visible{display:block;}
+  .success-icon{
+    width:48px;height:48px;border-radius:50%;background:var(--navy-900);color:#fff;
+    display:flex;align-items:center;justify-content:center;margin:0 auto;
+  }
+  .contact-success h3{margin:18px 0 0;font-weight:600;color:var(--navy-900);}
+  .contact-success p{margin:8px 0 0;font-size:13.5px;color:var(--text-soft);line-height:1.9;}
+
+  #contact-form.is-hidden{display:none;}
+
+  /* ---------- Footer ---------- */
+  .site-footer{border-top:1px solid var(--navy-100);padding:48px 0;}
+  .footer-inner{
+    display:flex;flex-direction:column;align-items:center;gap:24px;text-align:center;
+  }
+  .footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;font-size:12px;color:#8391A6;}
+  .footer-nav a:hover{color:var(--navy-800);}
+  .footer-copy{font-size:11px;color:#AEB8C6;}
+
+  @media(min-width:768px){
+    .footer-inner{flex-direction:row;justify-content:space-between;text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="site-header">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="mark">K</span>
+      <span class="name">かたけん<span> | SEOライター</span></span>
+    </a>
+
+    <nav class="main-nav" aria-label="メインナビゲーション">
+      <a href="#profile">プロフィール</a>
+      <a href="#service">対応サービス</a>
+      <a href="#sample">記事サンプル</a>
+      <a href="#flow">仕事の流れ</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+
+    <a href="#contact" class="btn btn-primary header-cta">お問い合わせ</a>
+
+    <button class="menu-toggle" id="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+      <svg id="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+      <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="display:none"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビゲーション">
+    <a href="#profile">プロフィール</a>
+    <a href="#service">対応サービス</a>
+    <a href="#sample">記事サンプル</a>
+    <a href="#flow">仕事の流れ</a>
+    <a href="#faq">よくある質問</a>
+    <a href="#contact">お問い合わせ</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <span class="eyebrow">SEO WRITER PORTFOLIO</span>
+      <h1>
+        <span class="kw-strong">検索する人の悩みに寄り添い、</span><br>
+        SEOにも配慮した記事を<span class="kw">丁寧に制作</span>します。
+      </h1>
+      <p>
+        SEOライターの「かたけん」です。検索意図の分析から構成作成、執筆、WordPress入稿まで一貫して対応しています。
+        読者の疑問にきちんと答える記事づくりを通じて、企業様の集客と信頼構築をお手伝いします。
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">
+          お問い合わせはこちら
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#sample" class="btn btn-outline">記事サンプルを見る</a>
+      </div>
+
+      <div class="hero-mock">
+        <div class="search-bar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA6B8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <span>読者が本当に知りたいことは、何だろう。</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag">SEO記事執筆</span>
+          <span class="tag">構成作成</span>
+          <span class="tag">リライト</span>
+          <span class="tag">AI活用</span>
+          <span class="tag">WP入稿</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROFILE ================= -->
+  <section class="section section-alt" id="profile">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-label">PROFILE</span>
+        <h2>プロフィール</h2>
+      </div>
+
+      <div class="profile-grid">
+        <div>
+          <div class="profile-avatar">
+            <div class="avatar-ring">
+              <div class="avatar-inner">K</div>
+            </div>
+          </div>
+          <p class="profile-name-mobile">かたけん<small>SEOライター</small></p>
+        </div>
+
+        <div class="profile-body">
+          <p>
+            SEOライターの「かたけん」と申します。健康・睡眠・キャリア・転職・副業・少年野球など、暮らしに身近なジャンルを中心に、検索ユーザーの疑問に丁寧に向き合った記事を制作しています。
+            「なぜこの記事にたどり着いたのか」「読み終えたときにどんな状態になっていてほしいか」を毎回考えてから執筆に入るようにしています。
+          </p>
+          <p>
+            SEOの知識だけでなく、一次情報の確認や表現の正確さにもこだわり、公開後も安心して運用いただける記事をお届けすることを大切にしています。生成AIも活用しますが、最終的な事実確認と文章の仕上げは必ず自分の手で行っています。
+          </p>
+
+          <ul class="check-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              検索意図の分析から構成・執筆・入稿まで一貫対応
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              専門用語に頼らず、誰にでも伝わる文章を意識
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              納期・進捗の連絡はこまめに行い、認識のズレを防止
+            </li>
+          </ul>
+
+          <p class="genre-label">得意ジャンル</p>
+          <div class="genre-grid">
+            <div class="genre-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M6 6c2 1.5 2 4.5 0 6M18 6c-2 1.5-2 4.5 0 6"/></svg>
+              <span>少年野球</span>
+            </div>
+            <div class="genre-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.8 8.6 2.6 5 6.2 5c2 0 3.4 1 4.8 2.6C12.4 6 13.8 5 15.8 5c3.6 0 5.4 3.6 3.7 7.5C19 16.65 12 21 12 21z"/></svg>
+              <span>健康</span>
+            </div>
+            <div class="genre-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 119.5 4a7 7 0 0010.5 10.5z"/></svg>
+              <span>睡眠</span>
+            </div>
+            <div class="genre-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+              <span>キャリア</span>
+            </div>
+            <div class="genre-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3l4 4-4 4"/><path d="M3 7h8"/><path d="M17 21l-4-4 4-4"/><path d="M21 17h-8"/></svg>
+              <span>転職</span>
+            </div>
+            <div class="genre-card">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M2 20h20"/></svg>
+              <span>副業</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section" id="service">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-label">SERVICE</span>
+        <h2>対応サービス</h2>
+        <p>記事執筆だけでなく、構成作成から入稿まで一貫してご依頼いただけます。必要な工程だけを切り出してのご依頼も可能です。</p>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3>SEO記事執筆</h3>
+          <p>検索キーワードの意図を分析したうえで、読者の疑問にきちんと答えるオリジナル記事を執筆します。文字数の水増しではなく、必要な情報を過不足なく届けることを大切にしています。</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="4" rx="1"/><rect x="3" y="10" width="8" height="10" rx="1"/><rect x="13" y="10" width="8" height="10" rx="1"/></svg>
+          </div>
+          <h3>SEO構成案作成</h3>
+          <p>上位表示に必要な見出し構成・キーワード配置を設計します。執筆前に構成案をご確認いただけるので、方向性のズレを防ぎながら進められます。</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 10-3.3 6.95"/><path d="M21 5v6h-6"/></svg>
+          </div>
+          <h3>リライト</h3>
+          <p>順位が伸び悩んでいる記事や情報が古くなった記事を、最新情報への更新と読みやすい構成への見直しでテコ入れします。既存の資産を活かしたいクライアント様に対応しています。</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+          </div>
+          <h3>AIを活用した記事制作</h3>
+          <p>生成AIを下調べや初稿の効率化に活用しつつ、事実確認・一次情報の追加・独自の視点の補強は必ず人の手で行います。スピードと品質を両立します。</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+          </div>
+          <h3>WordPress入稿対応</h3>
+          <p>執筆から入稿まで一括対応可能です。見出し装飾・画像設定・内部リンク設置まで行えるため、納品後にそのまま公開いただけます。</p>
+        </article>
+
+        <div class="service-note">
+          <p>上記以外の工程のみのご依頼や、複数サービスの組み合わせもご相談いただけます。まずはお気軽にお問い合わせください。</p>
+          <a href="#contact">
+            相談してみる
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SAMPLES ================= -->
+  <section class="section section-alt" id="sample">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-label">SAMPLE</span>
+        <h2>記事サンプル</h2>
+        <p>各ジャンルの制作事例です。実際の記事URLはお問い合わせ時、または個別にご案内しております。</p>
+      </div>
+
+      <div class="sample-grid">
+        <a href="#contact" class="sample-card">
+          <span class="sample-tag">少年野球</span>
+          <h3>少年野球のグローブ選び完全ガイド｜サイズ・素材・型付けの基本</h3>
+          <p>初めてグローブを選ぶ保護者向けに、失敗しない選び方のポイントを整理した記事。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+        <a href="#contact" class="sample-card">
+          <span class="sample-tag">健康</span>
+          <h3>疲れが取れないのはなぜ？考えられる原因と今日からできる対策</h3>
+          <p>検索意図を「原因を知りたい」「対策を知りたい」に分解して構成した実用記事。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+        <a href="#contact" class="sample-card">
+          <span class="sample-tag">睡眠</span>
+          <h3>寝つきが悪い人へ｜科学的根拠に基づく入眠を助ける習慣7選</h3>
+          <p>一次情報を確認しながら、再現性のある習慣にしぼって紹介した記事。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+        <a href="#contact" class="sample-card">
+          <span class="sample-tag">キャリア</span>
+          <h3>20代でキャリアに迷ったときに考えたい3つの視点</h3>
+          <p>抽象論で終わらせず、読者が次の一歩を踏み出せる着地を意識した記事。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+        <a href="#contact" class="sample-card">
+          <span class="sample-tag">転職</span>
+          <h3>転職理由の伝え方｜面接官に好印象を与える答え方の型</h3>
+          <p>検索ユーザーが「そのまま使える言い回し」を求めている点を踏まえて構成。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+        <a href="#contact" class="sample-card">
+          <span class="sample-tag">副業</span>
+          <h3>会社員の副業、始める前に確認しておきたい注意点まとめ</h3>
+          <p>リスクと対策をセットで提示し、安心して読み進められる構成にした記事。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FLOW ================= -->
+  <section class="section" id="flow">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <span class="eyebrow-label">FLOW</span>
+        <h2>仕事の流れ</h2>
+        <p>お問い合わせから納品まで、6つのステップで進めています。各段階でご確認いただきながら丁寧に進行します。</p>
+      </div>
+
+      <div class="flow-list">
+        <div class="flow-item">
+          <div class="flow-num">1</div>
+          <div>
+            <h3>お問い合わせ・ヒアリング</h3>
+            <p>フォームまたはクラウドワークス・ランサーズのメッセージからご連絡ください。目的やご希望のジャンル、納期感などをうかがいます。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">2</div>
+          <div>
+            <h3>お見積もり・ご提案</h3>
+            <p>ヒアリング内容をもとに、文字数・納期・料金の目安をご提案します。ご不明点はこの段階で遠慮なくご相談ください。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">3</div>
+          <div>
+            <h3>構成案の作成・すり合わせ</h3>
+            <p>検索意図とキーワードを分析し、見出し構成案を作成します。ご確認いただき、方向性をすり合わせてから執筆に入ります。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">4</div>
+          <div>
+            <h3>執筆</h3>
+            <p>構成案に沿って執筆します。一次情報の確認や事実関係のチェックを行いながら、読みやすさとSEOの両立を意識して仕上げます。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">5</div>
+          <div>
+            <h3>初稿の確認・修正</h3>
+            <p>初稿をご確認いただき、修正のご要望があれば反映します。表現の細かなニュアンスまで、納得いただけるまで調整します。</p>
+          </div>
+        </div>
+        <div class="flow-item">
+          <div class="flow-num">6</div>
+          <div>
+            <h3>納品</h3>
+            <p>テキストでの納品、またはWordPressへの入稿まで対応可能です。納品後の軽微な修正にも対応いたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section section-alt" id="faq">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <span class="eyebrow-label">FAQ</span>
+        <h2>よくある質問</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item is-open">
+          <button class="faq-q">
+            料金はどのくらいかかりますか？
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-a"><p>文字数や専門性、構成案作成の有無によって変動するため、一律の料金は設けておりません。ご予算やご要望をうかがったうえで、都度お見積もりをご提示します。まずはお気軽にご相談ください。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            AIは使用していますか？
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-a"><p>下調べや初稿作成の一部で生成AIを活用することがありますが、事実確認・一次情報の追加・文章の最終チェックは必ず人の手で行っています。AI利用の可否や範囲についてはご要望に応じて調整可能です。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            対応していないジャンルの依頼もできますか？
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-a"><p>得意ジャンル以外でも、資料をご提供いただければ対応可能な場合があります。まずはご相談ください。難しい場合は正直にお伝えします。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            納期の目安を教えてください。
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-a"><p>記事の文字数や構成案作成の有無によって異なりますが、目安として1記事あたり3〜7営業日程度です。まとまった本数のご依頼は別途スケジュールをご相談させてください。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            修正は何回まで対応してもらえますか？
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-a"><p>初稿に対する修正は内容に応じて対応しております。大幅な方向転換など、当初のご依頼内容から大きく変わる場合は追加のご相談とさせていただくことがあります。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            著作権や記事の使用範囲はどうなりますか？
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="faq-a"><p>納品完了後、著作権はクライアント様に譲渡いたします。二次利用や転載についてのご要望があれば、事前にご相談ください。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section" id="contact">
+    <div class="wrap-narrow">
+      <div class="section-head">
+        <span class="eyebrow-label">CONTACT</span>
+        <h2>お問い合わせ</h2>
+        <p>ご依頼・お見積もりのご相談は下記フォーム、またはクラウドワークス・ランサーズのメッセージからお気軽にどうぞ。24時間以内を目安にご返信いたします。</p>
+      </div>
+
+      <div class="contact-links">
+        <a href="#" class="btn btn-outline">クラウドワークスで相談 ↗</a>
+        <a href="#" class="btn btn-outline">ランサーズで相談 ↗</a>
+      </div>
+
+      <form id="contact-form" class="form-grid">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">お名前<span class="req">（必須）</span></label>
+            <input id="name" name="name" type="text" required placeholder="山田 太郎">
+          </div>
+          <div class="field">
+            <label for="email">メールアドレス<span class="req">（必須）</span></label>
+            <input id="email" name="email" type="email" required placeholder="example@mail.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="company">会社名・屋号</label>
+            <input id="company" name="company" type="text" placeholder="任意">
+          </div>
+          <div class="field">
+            <label for="budget">ご予算の目安</label>
+            <select id="budget" name="budget">
+              <option value="">選択してください</option>
+              <option>〜5万円</option>
+              <option>5〜20万円</option>
+              <option>20〜50万円</option>
+              <option>50万円以上</option>
+              <option>相談しながら決めたい</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">ご相談内容<span class="req">（必須）</span></label>
+          <textarea id="message" name="message" required placeholder="ご依頼のジャンル、記事の本数、納期のご希望などをお聞かせください。"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">
+            送信する
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="contact-success" id="contact-success">
+        <div class="success-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3>お問い合わせありがとうございます</h3>
+        <p>内容を確認のうえ、通常24時間以内にご返信いたします。今しばらくお待ちください。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="brand">
+      <span class="mark">K</span>
+      <span class="name">かたけん<span> | SEOライター</span></span>
+    </div>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <a href="#top">TOP</a>
+      <a href="#profile">プロフィール</a>
+      <a href="#service">対応サービス</a>
+      <a href="#sample">記事サンプル</a>
+      <a href="#flow">仕事の流れ</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+    <p class="footer-copy">© <span id="year"></span> Kataken. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Header shadow on scroll
+  var header = document.getElementById('site-header');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 8) { header.classList.add('is-scrolled'); }
+    else { header.classList.remove('is-scrolled'); }
+  });
+
+  // Mobile menu toggle
+  var menuToggle = document.getElementById('menu-toggle');
+  var mobileNav = document.getElementById('mobile-nav');
+  var iconMenu = document.getElementById('icon-menu');
+  var iconClose = document.getElementById('icon-close');
+
+  function closeMenu() {
+    mobileNav.classList.remove('is-open');
+    iconMenu.style.display = '';
+    iconClose.style.display = 'none';
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  menuToggle.addEventListener('click', function () {
+    var isOpen = mobileNav.classList.toggle('is-open');
+    iconMenu.style.display = isOpen ? 'none' : '';
+    iconClose.style.display = isOpen ? '' : 'none';
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  Array.prototype.forEach.call(mobileNav.querySelectorAll('a'), function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  // FAQ accordion
+  Array.prototype.forEach.call(document.querySelectorAll('.faq-item'), function (item) {
+    var btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', function () {
+      var wasOpen = item.classList.contains('is-open');
+      Array.prototype.forEach.call(document.querySelectorAll('.faq-item'), function (i) {
+        i.classList.remove('is-open');
+      });
+      if (!wasOpen) { item.classList.add('is-open'); }
+    });
+  });
+
+  // Contact form (front-end only / placeholder for WordPress integration)
+  var form = document.getElementById('contact-form');
+  var success = document.getElementById('contact-success');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    form.classList.add('is-hidden');
+    success.classList.add('is-visible');
+  });
+</script>
+
+</body>
+</html>
