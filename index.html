@@ -63,7 +63,7 @@
   .brand .name{font-weight:700;font-size:15px;letter-spacing:.02em;}
   .brand .name span{color:var(--navy-500);font-weight:400;}
 
-  .main-nav{display:none;align-items:center;gap:32px;font-size:14px;color:var(--navy-700);}
+  .main-nav{display:none;align-items:center;gap:24px;font-size:13.5px;color:var(--navy-700);white-space:nowrap;}
   .main-nav a:hover{color:var(--navy-900);}
 
   .btn{
@@ -113,6 +113,10 @@
   .hero p{
     margin:26px auto 0;color:var(--text-soft);font-size:15px;line-height:2;max-width:600px;
   }
+  .hero p.hero-sub{
+    margin-top:18px;color:var(--navy-700);font-weight:500;font-size:15px;line-height:1.9;max-width:560px;
+  }
+  .hero p.hero-sub + p{ margin-top:22px; }
   .hero-actions{
     margin-top:38px;display:flex;flex-direction:column;gap:12px;align-items:center;
   }
@@ -131,9 +135,12 @@
     padding:7px 14px;border-radius:999px;
   }
 
+  .hide-sm{display:none;}
+
   @media(min-width:640px){
     .hero-actions{flex-direction:row;justify-content:center;}
     .hero h1{font-size:32px;}
+    .hide-sm{display:inline;}
   }
   @media(min-width:768px){
     .hero{padding:190px 0 120px;}
@@ -171,7 +178,7 @@
   .check-list svg{flex-shrink:0;margin-top:2px;color:var(--navy-500);}
 
   .genre-label{font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--navy-500);margin:36px 0 12px;}
-  .genre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .genre-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
   .genre-card{
     display:flex;flex-direction:column;align-items:center;gap:8px;
     background:#fff;border:1px solid var(--navy-100);border-radius:12px;padding:16px 8px;
@@ -179,7 +186,7 @@
   .genre-card span{font-size:11.5px;color:var(--text-soft);}
   .genre-card svg{color:var(--navy-600);}
 
-  @media(min-width:640px){ .genre-grid{grid-template-columns:repeat(6,1fr);} }
+  @media(min-width:640px){ .genre-grid{grid-template-columns:repeat(4,1fr);} }
   @media(min-width:768px){
     .profile-grid{grid-template-columns:220px 1fr;align-items:start;}
     .profile-name-mobile{display:none;}
@@ -234,12 +241,69 @@
   @media(min-width:640px){ .sample-grid{grid-template-columns:repeat(2,1fr);} }
   @media(min-width:960px){ .sample-grid{grid-template-columns:repeat(3,1fr);} }
 
-  /* ---------- Flow ---------- */
+  /* ---------- Why chosen ---------- */
+  .why-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+  .why-card{
+    border:1px solid var(--navy-100);border-radius:18px;padding:32px 28px;background:#fff;
+    text-align:center;
+  }
+  .why-icon{
+    width:52px;height:52px;border-radius:50%;background:var(--navy-900);color:#fff;
+    display:flex;align-items:center;justify-content:center;margin:0 auto;
+  }
+  .why-card h3{margin:20px 0 0;font-size:15.5px;font-weight:600;color:var(--navy-900);}
+  .why-card p{margin:10px 0 0;font-size:13.5px;line-height:1.9;color:var(--text-soft);}
+  @media(min-width:768px){ .why-grid{grid-template-columns:repeat(3,1fr);} }
+
+  /* ---------- CTA banner ---------- */
+  .cta-banner{
+    background:var(--navy-900);border-radius:24px;padding:44px 28px;text-align:center;
+  }
+  .cta-banner h3{margin:0;font-size:19px;font-weight:700;color:#fff;}
+  .cta-banner p{margin:10px 0 0;font-size:13.5px;color:var(--navy-200);}
+  .cta-banner .btn-primary{
+    margin-top:22px;background:#fff;color:var(--navy-900);
+  }
+  .cta-banner .btn-primary:hover{background:var(--navy-100);}
+  @media(min-width:768px){ .cta-banner{padding:52px 40px;} }
+
+  /* ---------- Promise ---------- */
+  .promise-list{display:grid;gap:14px;grid-template-columns:1fr;}
+  .promise-item{
+    display:flex;align-items:center;gap:14px;border:1px solid var(--navy-100);
+    border-radius:14px;padding:18px 20px;background:#fff;
+  }
+  .promise-icon{
+    flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--navy-50);color:var(--navy-700);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .promise-item span{font-size:13.5px;font-weight:500;color:var(--navy-900);}
+  @media(min-width:640px){ .promise-list{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- Tools ---------- */
+  .tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+  .tool-card{
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    background:#fff;border:1px solid var(--navy-100);border-radius:14px;padding:20px 8px;
+  }
+  .tool-card .tool-icon{
+    width:40px;height:40px;border-radius:10px;background:var(--navy-50);color:var(--navy-700);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .tool-card span{font-size:12px;color:var(--text-soft);font-weight:500;}
+  @media(min-width:640px){ .tools-grid{grid-template-columns:repeat(3,1fr);} }
+  @media(min-width:960px){ .tools-grid{grid-template-columns:repeat(6,1fr);} }
+
+  /* ---------- Flow (timeline) ---------- */
   .flow-list{position:relative;display:flex;flex-direction:column;gap:32px;}
-  .flow-item{display:flex;gap:20px;}
+  .flow-list::before{
+    content:"";position:absolute;left:19px;top:6px;bottom:6px;width:1px;background:var(--navy-100);
+  }
+  .flow-item{position:relative;display:flex;gap:20px;}
   .flow-num{
     flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--navy-900);color:#fff;
     display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;
+    position:relative;z-index:1;
   }
   .flow-item h3{margin:6px 0 0;font-size:15px;font-weight:600;color:var(--navy-900);}
   .flow-item p{margin:6px 0 0;font-size:13.5px;line-height:1.9;color:var(--text-soft);}
@@ -318,9 +382,10 @@
 
     <nav class="main-nav" aria-label="メインナビゲーション">
       <a href="#profile">プロフィール</a>
+      <a href="#reason">選ばれる理由</a>
       <a href="#service">対応サービス</a>
       <a href="#sample">記事サンプル</a>
-      <a href="#flow">仕事の流れ</a>
+      <a href="#flow">制作の流れ</a>
       <a href="#faq">よくある質問</a>
     </nav>
 
@@ -333,10 +398,13 @@
   </div>
 
   <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビゲーション">
+    <a href="#reason">選ばれる理由</a>
     <a href="#profile">プロフィール</a>
     <a href="#service">対応サービス</a>
+    <a href="#promise">お客様への約束</a>
     <a href="#sample">記事サンプル</a>
-    <a href="#flow">仕事の流れ</a>
+    <a href="#flow">制作の流れ</a>
+    <a href="#tools">使用ツール</a>
     <a href="#faq">よくある質問</a>
     <a href="#contact">お問い合わせ</a>
   </nav>
@@ -349,12 +417,11 @@
     <div class="wrap">
       <span class="eyebrow">SEO WRITER PORTFOLIO</span>
       <h1>
-        <span class="kw-strong">検索する人の悩みに寄り添い、</span><br>
-        SEOにも配慮した記事を<span class="kw">丁寧に制作</span>します。
+        SEOで<span class="kw-strong">上位表示</span>を目指し、<br class="hide-sm">
+        読者にも検索エンジンにも<span class="kw">評価される記事</span>を制作します。
       </h1>
-      <p>
-        SEOライターの「かたけん」です。検索意図の分析から構成作成、執筆、WordPress入稿まで一貫して対応しています。
-        読者の疑問にきちんと答える記事づくりを通じて、企業様の集客と信頼構築をお手伝いします。
+      <p class="hero-sub">
+        構成作成から執筆まで一貫対応。丁寧なコミュニケーションと迅速な対応を心掛けています。
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">
@@ -380,6 +447,41 @@
     </div>
   </section>
 
+  <!-- ================= WHY CHOSEN ================= -->
+  <section class="section" id="reason">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-label">WHY CHOSEN</span>
+        <h2>選ばれる理由</h2>
+        <p>検索エンジンと読者、両方の視点を意識した制作体制と、丁寧な対応を大切にしています。</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </div>
+          <h3>SEOを意識した記事制作</h3>
+          <p>検索意図の分析とキーワード設計をもとに、上位表示と読者満足の両方を狙った記事構成・執筆を行います。</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+          </div>
+          <h3>ChatGPT・Claude を活用</h3>
+          <p>生成AIを下調べ・効率化に活用しつつ、事実確認と文章の仕上げは必ず人の手で行い、スピードと品質を両立します。</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </div>
+          <h3>丁寧で迅速なコミュニケーション</h3>
+          <p>ご連絡への返信はスピーディーに、進捗共有や確認事項の伝達も丁寧に行い、安心してお任せいただける対応を心掛けています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= PROFILE ================= -->
   <section class="section section-alt" id="profile">
     <div class="wrap">
@@ -400,11 +502,13 @@
 
         <div class="profile-body">
           <p>
-            SEOライターの「かたけん」と申します。健康・睡眠・キャリア・転職・副業・少年野球など、暮らしに身近なジャンルを中心に、検索ユーザーの疑問に丁寧に向き合った記事を制作しています。
-            「なぜこの記事にたどり着いたのか」「読み終えたときにどんな状態になっていてほしいか」を毎回考えてから執筆に入るようにしています。
+            SEOライターの「かたけん」と申します。ライター歴は約3ヶ月とまだ日は浅いですが、クラウドソーシングを中心にライティング案件を30件ほど担当し、検索意図の分析から構成作成、執筆までを実践の中で身につけてきました。
           </p>
           <p>
-            SEOの知識だけでなく、一次情報の確認や表現の正確さにもこだわり、公開後も安心して運用いただける記事をお届けすることを大切にしています。生成AIも活用しますが、最終的な事実確認と文章の仕上げは必ず自分の手で行っています。
+            得意ジャンルは、副業・健康・筋トレ・キャリアです。いずれも自分自身が実際に取り組んできたテーマだからこそ、検索する人が本当につまずいているポイントや、知りたい情報の温度感を実感を持って書けると考えています。
+          </p>
+          <p>
+            経験の浅さは、スピードと丁寧さで補うことを心がけています。ご依頼をいただいたら迅速に対応し、進捗のご連絡や細かいすり合わせも丁寧に行うことで、安心してお任せいただける関係づくりを大切にしています。
           </p>
 
           <ul class="check-list">
@@ -425,28 +529,20 @@
           <p class="genre-label">得意ジャンル</p>
           <div class="genre-grid">
             <div class="genre-card">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M6 6c2 1.5 2 4.5 0 6M18 6c-2 1.5-2 4.5 0 6"/></svg>
-              <span>少年野球</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M2 20h20"/></svg>
+              <span>副業</span>
             </div>
             <div class="genre-card">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-9.5-8.5C.8 8.6 2.6 5 6.2 5c2 0 3.4 1 4.8 2.6C12.4 6 13.8 5 15.8 5c3.6 0 5.4 3.6 3.7 7.5C19 16.65 12 21 12 21z"/></svg>
               <span>健康</span>
             </div>
             <div class="genre-card">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 119.5 4a7 7 0 0010.5 10.5z"/></svg>
-              <span>睡眠</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7v10M18 7v10M2 9v6M22 9v6M6 12h12"/></svg>
+              <span>筋トレ</span>
             </div>
             <div class="genre-card">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
               <span>キャリア</span>
-            </div>
-            <div class="genre-card">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3l4 4-4 4"/><path d="M3 7h8"/><path d="M17 21l-4-4 4-4"/><path d="M21 17h-8"/></svg>
-              <span>転職</span>
-            </div>
-            <div class="genre-card">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M2 20h20"/></svg>
-              <span>副業</span>
             </div>
           </div>
         </div>
@@ -490,18 +586,18 @@
 
         <article class="service-card">
           <div class="service-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
           </div>
-          <h3>AIを活用した記事制作</h3>
-          <p>生成AIを下調べや初稿の効率化に活用しつつ、事実確認・一次情報の追加・独自の視点の補強は必ず人の手で行います。スピードと品質を両立します。</p>
+          <h3>WordPress入稿</h3>
+          <p>執筆から入稿まで一括対応可能です。見出し装飾・画像設定・内部リンク設置まで行えるため、納品後にそのまま公開いただけます。</p>
         </article>
 
         <article class="service-card">
           <div class="service-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
           </div>
-          <h3>WordPress入稿対応</h3>
-          <p>執筆から入稿まで一括対応可能です。見出し装飾・画像設定・内部リンク設置まで行えるため、納品後にそのまま公開いただけます。</p>
+          <h3>AI活用ライティング</h3>
+          <p>生成AIを下調べや初稿の効率化に活用しつつ、事実確認・一次情報の追加・独自の視点の補強は必ず人の手で行います。スピードと品質を両立します。</p>
         </article>
 
         <div class="service-note">
@@ -515,8 +611,66 @@
     </div>
   </section>
 
+  <!-- ================= CTA (middle) ================= -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap-narrow">
+      <div class="cta-banner">
+        <h3>まずはお気軽にご相談ください</h3>
+        <p>記事の本数・ジャンル・納期のご希望など、決まっていない段階でも構いません。</p>
+        <a href="#contact" class="btn btn-primary">
+          お問い合わせはこちら
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROMISE ================= -->
+  <section class="section section-alt" id="promise">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-label">PROMISE</span>
+        <h2>お客様への約束</h2>
+        <p>安心してご依頼いただくために、制作にあたって大切にしていることをお伝えします。</p>
+      </div>
+
+      <div class="promise-list">
+        <div class="promise-item">
+          <div class="promise-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <span>納期厳守</span>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <span>迅速な返信</span>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </div>
+          <span>丁寧なコミュニケーション</span>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          </div>
+          <span>SEOを意識した記事制作</span>
+        </div>
+        <div class="promise-item">
+          <div class="promise-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 10-3.3 6.95"/><path d="M21 5v6h-6"/></svg>
+          </div>
+          <span>柔軟な修正対応</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= SAMPLES ================= -->
-  <section class="section section-alt" id="sample">
+  <section class="section" id="sample">
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow-label">SAMPLE</span>
@@ -525,40 +679,34 @@
       </div>
 
       <div class="sample-grid">
-        <a href="#contact" class="sample-card">
-          <span class="sample-tag">少年野球</span>
-          <h3>少年野球のグローブ選び完全ガイド｜サイズ・素材・型付けの基本</h3>
-          <p>初めてグローブを選ぶ保護者向けに、失敗しない選び方のポイントを整理した記事。</p>
-          <span class="sample-link">詳しく見る →</span>
-        </a>
-        <a href="#contact" class="sample-card">
-          <span class="sample-tag">健康</span>
-          <h3>疲れが取れないのはなぜ？考えられる原因と今日からできる対策</h3>
-          <p>検索意図を「原因を知りたい」「対策を知りたい」に分解して構成した実用記事。</p>
-          <span class="sample-link">詳しく見る →</span>
-        </a>
-        <a href="#contact" class="sample-card">
-          <span class="sample-tag">睡眠</span>
-          <h3>寝つきが悪い人へ｜科学的根拠に基づく入眠を助ける習慣7選</h3>
-          <p>一次情報を確認しながら、再現性のある習慣にしぼって紹介した記事。</p>
-          <span class="sample-link">詳しく見る →</span>
-        </a>
-        <a href="#contact" class="sample-card">
-          <span class="sample-tag">キャリア</span>
-          <h3>20代でキャリアに迷ったときに考えたい3つの視点</h3>
-          <p>抽象論で終わらせず、読者が次の一歩を踏み出せる着地を意識した記事。</p>
-          <span class="sample-link">詳しく見る →</span>
-        </a>
-        <a href="#contact" class="sample-card">
-          <span class="sample-tag">転職</span>
-          <h3>転職理由の伝え方｜面接官に好印象を与える答え方の型</h3>
-          <p>検索ユーザーが「そのまま使える言い回し」を求めている点を踏まえて構成。</p>
-          <span class="sample-link">詳しく見る →</span>
-        </a>
-        <a href="#contact" class="sample-card">
+        <a href="https://docs.google.com/document/d/1V9YwEb7UkSsLRoW5anJEa9OL--f-5dazL1sNAZ0gHD0/edit?usp=sharing" target="_blank" rel="noopener" class="sample-card">
           <span class="sample-tag">副業</span>
-          <h3>会社員の副業、始める前に確認しておきたい注意点まとめ</h3>
-          <p>リスクと対策をセットで提示し、安心して読み進められる構成にした記事。</p>
+          <h3>AI副業とは？初心者におすすめの仕事や始め方をわかりやすく解説</h3>
+          <p>AIツールを使った副業の始め方を、初心者にもわかりやすく整理した記事。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+        <a href="https://docs.google.com/document/d/1k4tlo6axQ6KpaMNZ1Jg2GBcK1G1kHsjqgIcsPBJosFA/edit?usp=sharing" target="_blank" rel="noopener" class="sample-card">
+          <span class="sample-tag">健康</span>
+          <h3>健康な毎日を目指す5つのコツ｜栄養バランスの良い食事で無理なく続ける方法</h3>
+          <p>無理なく続けられる食事のコツを、栄養バランスの視点から解説した記事。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+        <a href="https://docs.google.com/document/d/1otHwcWQ-TlkgZ8aX_DIShrL85xcFBu5NlXJuYEDM8YY/edit?usp=sharing" target="_blank" rel="noopener" class="sample-card">
+          <span class="sample-tag">キャリア</span>
+          <h3>みんな迷いながら進んでいる。友人の転職を見て気づいた、キャリアに正解はないということ</h3>
+          <p>友人の転職エピソードを軸に、キャリアの正解探しから抜け出すヒントをまとめた記事。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+        <a href="https://docs.google.com/document/d/1PR6EIkd2Q9-bfoTMqMJy8LuQDDEwQIQgj4x8jn-i9vI/edit?usp=sharing" target="_blank" rel="noopener" class="sample-card">
+          <span class="sample-tag">美容</span>
+          <h3>今日から肌が整う｜洗顔〜保湿の"迷わない"基本ルート</h3>
+          <p>洗顔から保湿までの基本ステップを、迷わず実践できる形で整理した記事。</p>
+          <span class="sample-link">詳しく見る →</span>
+        </a>
+        <a href="https://docs.google.com/document/d/1SrcFhWL2ofUNM2NdwDHJyRfX7xYk2M1zywTwjMkBD1Y/edit?usp=sharing" target="_blank" rel="noopener" class="sample-card">
+          <span class="sample-tag">ライフスタイル</span>
+          <h3>一人暮らしのライフスタイルをもっと楽しむ。自分らしい毎日をつくるヒント</h3>
+          <p>一人暮らしの日常をより心地よくするための工夫を紹介した記事。</p>
           <span class="sample-link">詳しく見る →</span>
         </a>
       </div>
@@ -566,33 +714,33 @@
   </section>
 
   <!-- ================= FLOW ================= -->
-  <section class="section" id="flow">
+  <section class="section section-alt" id="flow">
     <div class="wrap-narrow">
       <div class="section-head">
         <span class="eyebrow-label">FLOW</span>
-        <h2>仕事の流れ</h2>
-        <p>お問い合わせから納品まで、6つのステップで進めています。各段階でご確認いただきながら丁寧に進行します。</p>
+        <h2>制作の流れ</h2>
+        <p>ご相談から納品まで、6つのステップで進めています。各段階でご確認いただきながら丁寧に進行します。</p>
       </div>
 
       <div class="flow-list">
         <div class="flow-item">
           <div class="flow-num">1</div>
           <div>
-            <h3>お問い合わせ・ヒアリング</h3>
+            <h3>ご相談</h3>
             <p>フォームまたはクラウドワークス・ランサーズのメッセージからご連絡ください。目的やご希望のジャンル、納期感などをうかがいます。</p>
           </div>
         </div>
         <div class="flow-item">
           <div class="flow-num">2</div>
           <div>
-            <h3>お見積もり・ご提案</h3>
+            <h3>お見積り</h3>
             <p>ヒアリング内容をもとに、文字数・納期・料金の目安をご提案します。ご不明点はこの段階で遠慮なくご相談ください。</p>
           </div>
         </div>
         <div class="flow-item">
           <div class="flow-num">3</div>
           <div>
-            <h3>構成案の作成・すり合わせ</h3>
+            <h3>構成作成</h3>
             <p>検索意図とキーワードを分析し、見出し構成案を作成します。ご確認いただき、方向性をすり合わせてから執筆に入ります。</p>
           </div>
         </div>
@@ -606,8 +754,8 @@
         <div class="flow-item">
           <div class="flow-num">5</div>
           <div>
-            <h3>初稿の確認・修正</h3>
-            <p>初稿をご確認いただき、修正のご要望があれば反映します。表現の細かなニュアンスまで、納得いただけるまで調整します。</p>
+            <h3>修正</h3>
+            <p>初稿をご確認いただき、修正のご要望があれば反映します。表現の細かなニュアンスまで、納得いただけるまで柔軟に調整します。</p>
           </div>
         </div>
         <div class="flow-item">
@@ -616,6 +764,56 @@
             <h3>納品</h3>
             <p>テキストでの納品、またはWordPressへの入稿まで対応可能です。納品後の軽微な修正にも対応いたします。</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TOOLS ================= -->
+  <section class="section" id="tools">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow-label">TOOLS</span>
+        <h2>使用ツール</h2>
+        <p>効率的かつ高品質な制作のため、以下のツールを活用しています。</p>
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>
+          </div>
+          <span>ChatGPT</span>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+          </div>
+          <span>Claude</span>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+          </div>
+          <span>WordPress</span>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <span>Canva</span>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V8z"/><path d="M14 3v5h5"/><path d="M8 13h8M8 17h8"/></svg>
+          </div>
+          <span>Googleドキュメント</span>
+        </div>
+        <div class="tool-card">
+          <div class="tool-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V8z"/><path d="M14 3v5h5"/><path d="M8 12h3v6H8zM13 14h3v4h-3z"/></svg>
+          </div>
+          <span>Googleスプレッドシート</span>
         </div>
       </div>
     </div>
@@ -686,8 +884,8 @@
       </div>
 
       <div class="contact-links">
-        <a href="#" class="btn btn-outline">クラウドワークスで相談 ↗</a>
-        <a href="#" class="btn btn-outline">ランサーズで相談 ↗</a>
+        <a href="https://crowdworks.jp/public/employees/6313847" target="_blank" rel="noopener" class="btn btn-outline">クラウドワークスで相談 ↗</a>
+        <a href="https://www.lancers.jp/profile/katarousu?ref=header_menu" target="_blank" rel="noopener" class="btn btn-outline">ランサーズで相談 ↗</a>
       </div>
 
       <form id="contact-form" class="form-grid">
@@ -751,10 +949,13 @@
     </div>
     <nav class="footer-nav" aria-label="フッターナビゲーション">
       <a href="#top">TOP</a>
+      <a href="#reason">選ばれる理由</a>
       <a href="#profile">プロフィール</a>
       <a href="#service">対応サービス</a>
+      <a href="#promise">お客様への約束</a>
       <a href="#sample">記事サンプル</a>
-      <a href="#flow">仕事の流れ</a>
+      <a href="#flow">制作の流れ</a>
+      <a href="#tools">使用ツール</a>
       <a href="#faq">よくある質問</a>
       <a href="#contact">お問い合わせ</a>
     </nav>
@@ -808,13 +1009,55 @@
     });
   });
 
-  // Contact form (front-end only / placeholder for WordPress integration)
+  // ------------------------------------------------------------------
+  // Googleフォーム連携設定
+  // 1. Googleフォームを作成し、質問を「お名前」「メールアドレス」「会社名・屋号」
+  //    「ご予算の目安」「ご相談内容」の5つ用意してください。
+  // 2. フォームの「送信」→「リンク」から表示されるURLの末尾を
+  //    "/viewform" → "/formResponse" に変更したものを GOOGLE_FORM_ACTION に設定します。
+  //    例: https://docs.google.com/forms/d/e/1FAIpQLxxxxxxxxxxxxxxxxx/formResponse
+  // 3. 各質問の entry ID を調べ、下記 GOOGLE_FORM_FIELDS に設定します。
+  //    調べ方: Googleフォームの編集画面で「プレビュー」を開き、右クリック→
+  //    「ページのソースを表示」→ Ctrl+F で「entry.」を検索すると、
+  //    各質問に対応する entry.123456789 のような番号が見つかります。
+  // ------------------------------------------------------------------
+  var GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSc_gGn2-UNkKbbGOYBmE9kknqhf4PCh2N6wTUheIvLVzu1BaQ/formResponse";
+  var GOOGLE_FORM_FIELDS = {
+    name:    "entry.727534295",
+    email:   "entry.1675517411",
+    company: "entry.956291032",
+    budget:  "entry.585543488",
+    message: "entry.375177291"
+  };
+
+  // Contact form → Googleフォームへ送信
   var form = document.getElementById('contact-form');
   var success = document.getElementById('contact-success');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    form.classList.add('is-hidden');
-    success.classList.add('is-visible');
+
+    var data = new URLSearchParams();
+    data.append(GOOGLE_FORM_FIELDS.name, form.elements['name'].value);
+    data.append(GOOGLE_FORM_FIELDS.email, form.elements['email'].value);
+    data.append(GOOGLE_FORM_FIELDS.company, form.elements['company'].value);
+    data.append(GOOGLE_FORM_FIELDS.budget, form.elements['budget'].value);
+    data.append(GOOGLE_FORM_FIELDS.message, form.elements['message'].value);
+
+    // GoogleフォームはCORSに対応していないため mode:'no-cors' で送信します。
+    // レスポンス内容は取得できませんが、送信自体は正常に行われます。
+    fetch(GOOGLE_FORM_ACTION, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: data.toString()
+    }).then(function () {
+      form.classList.add('is-hidden');
+      success.classList.add('is-visible');
+    }).catch(function () {
+      // ネットワークエラー時も、noCorsの性質上ここに来ることは基本的にありません。
+      form.classList.add('is-hidden');
+      success.classList.add('is-visible');
+    });
   });
 </script>
 
